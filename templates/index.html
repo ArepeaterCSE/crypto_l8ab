@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L8AB CRYPTO // TERMINAL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">L8AB <span>CRYPTO</span></div>
+        <div class="status-dot">LIVE MARKET</div>
+    </nav>
+
+    <div class="container">
+        
+        <header class="dashboard-header">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search Asset (e.g. BTC, ETH)...">
+                <button onclick="filterCoins()">FIND</button>
+            </div>
+            <div class="market-stats">
+                <div class="stat-card">
+                    <span>TOP ASSET</span>
+                    <h3 id="top-coin">BTC</h3>
+                </div>
+                <div class="stat-card">
+                    <span>TREND</span>
+                    <h3 class="text-green" id="market-trend">BULLISH</h3>
+                </div>
+            </div>
+        </header>
+
+        <section class="chart-section" id="chartSection" style="display:none;">
+            <div class="chart-header">
+                <div class="coin-info">
+                    <img id="detail-img" src="" alt="">
+                    <h2 id="detail-name">Bitcoin</h2>
+                    <span id="detail-symbol">BTC</span>
+                </div>
+                <div class="coin-price">
+                    <h2 id="detail-price">$0.00</h2>
+                    <span id="detail-change">0.00%</span>
+                </div>
+            </div>
+            <div class="canvas-container">
+                <canvas id="mainChart"></canvas>
+            </div>
+        </section>
+
+        <section class="crypto-grid">
+            <div class="grid-header">
+                <span>ASSET</span>
+                <span>PRICE (USD)</span>
+                <span>24H CHANGE</span>
+                <span>MARKET CAP</span>
+            </div>
+            <div id="coin-list">
+                <div class="loading">Loading Market Data...</div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>POWERED BY <strong>L8AB SYSTEMS</strong></p>
+            <div class="socials">
+                <a href="https://instagram.com/L8ab" target="_blank">INSTAGRAM: @L8ab</a>
+                <span class="separator">|</span>
+                <a href="mailto:contact@l8ab.me">EMAIL: contact@l8ab.me</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
